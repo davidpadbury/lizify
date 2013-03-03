@@ -1,0 +1,17 @@
+{
+  "name": "lizify",
+  "version": "0.0.1",
+  "description": "Give your images a bit of class with Liz.",
+  "main": "index.js",
+  "dependencies": {
+    "faced": "~0.0.2",
+    "canvas": "~1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node tests/test"
+  },
+  "repository": "",
+  "author": "David Padbury <david@davidpadbury.com>",
+  "license": "WTFPL"
+}
