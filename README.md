@@ -16,8 +16,16 @@ lizify('./input.jpg', './output.jpg', function(err) {
 
 ## What... Why..?
 
-_Please don't ask._
+_I needed something that messed with images for a demonstration of something else and only on Github so I can have a npm git dependency._
+
+_I'm sorry._
+
+## Installation from npm?
+
+No.
 
 ## Sample
 
-![lizified](http://i.imgur.com/Lzy9dKZ.jpg)
+![lizified vampires of whatever they are](http://i.imgur.com/Lzy9dKZ.jpg)
+
+![lizified presidents](http://i.imgur.com/sORsbIR.jpg)
