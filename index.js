@@ -18,23 +18,25 @@ function lizify(source, destination, callback) {
 
             var img = new Canvas.Image;
 
+            img.onload = function() {
+                var resultCanvas = new Canvas(img.width, img.height),
+                    resultCtx = resultCanvas.getContext('2d');
+
+                resultCtx.drawImage(img, 0, 0, img.width, img.height);
+
+                faces.forEach(function(face) {
+                    resultCtx.drawImage(lizImg, face.x, face.y, face.width, face.height);
+                });
+
+                var jpgStream = resultCanvas.jpegStream();
+
+                jpgStream.pipe(fs.createWriteStream(destination));
+                jpgStream.on('end', function() {
+                    callback(null);
+                });
+            };
+
             img.src = data;
-
-            var resultCanvas = new Canvas(img.width, img.height),
-                resultCtx = resultCanvas.getContext('2d');
-
-            resultCtx.drawImage(img, 0, 0, img.width, img.height);
-
-            faces.forEach(function(face) {
-                resultCtx.drawImage(lizImg, face.x, face.y, face.width, face.height);
-            });
-
-            var jpgStream = resultCanvas.jpegStream();
-
-            jpgStream.pipe(fs.createWriteStream(destination));
-            jpgStream.on('end', function() {
-                callback(null);
-            });
         });
     });
 }
